@@ -77,7 +77,6 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
-Berikut adalah parafrase dari kalimat yang Anda minta:
 
 **Refleksi Wajib (Penerbit)**
 
@@ -96,7 +95,6 @@ Berikut adalah parafrase dari kalimat yang Anda minta:
     - Meskipun pola Singleton dapat diimplementasikan dalam Rust, penggunaannya tidak terlalu diperlukan dalam kasus ini karena DashMap sudah menyediakan fungsionalitas yang diperlukan. Jadi, penggunaan DashMap adalah opsi yang tepat untuk kebutuhan variabel statis SUBSCRIBERS dalam BambangShop.
 
 #### Reflection Publisher-2
-Berikut adalah parafrase dari kalimat yang Anda berikan:
 
 **Refleksi Penerbit-2**
 
@@ -121,3 +119,20 @@ Berikut adalah parafrase dari kalimat yang Anda berikan:
    Fitur variabel lingkungan dalam Postman memudahkan pengguna untuk beralih antara lingkungan yang berbeda, seperti pengembangan, staging, dan produksi saat menguji API.
 
 #### Reflection Publisher-3
+
+1. Pola Observer memiliki dua varian: model Push (penerbit mendorong data ke pelanggan) dan model Pull (pelanggan menarik data dari penerbit). Dalam kasus tutorial ini, varian Pola Observer mana yang kita gunakan?
+
+   Dalam modul ini, kita menerapkan varian model Push dari Pola Observer, yang terlihat dari cara kita mengirim notifikasi ke pelanggan melalui permintaan HTTP POST setelah mereka berlangganan. Notifikasi ini diaktifkan oleh aksi seperti pembuatan, promosi, atau penghapusan produk.
+
+2. Apa kelebihan dan kekurangan menggunakan varian lain dari Pola Observer untuk kasus tutorial ini? (contoh: jika jawaban Q1 adalah Push, bayangkan jika kita menggunakan Pull)
+
+   Kelebihan menggunakan model Pull adalah pengurangan dalam konsumsi sumber daya jaringan dan komputasi karena pelanggan hanya mengambil data ketika mereka membutuhkannya. Ini memberi pelanggan kontrol penuh atas waktu pengambilan data, memungkinkan mereka untuk menghindari pengambilan data yang tidak perlu.
+   Kekurangan dari model Pull adalah pelanggan harus aktif meminta pembaruan, yang bisa menyebabkan penundaan dalam menerima informasi terkini. Ini bisa menjadi tidak efisien ketika pembaruan diperlukan dengan segera. Selain itu, implementasi model Pull mungkin memerlukan logika tambahan di sisi pelanggan untuk mengelola permintaan dan pembaruan data secara efektif.
+
+3. Jelaskan apa yang akan terjadi pada program jika kita memutuskan untuk tidak menggunakan multi-threading dalam proses notifikasi.
+
+   Tanpa multi-threading, proses notifikasi akan berlangsung secara berurutan, di mana setiap notifikasi diproses satu demi satu. Ini berarti kita harus menunggu penyelesaian notifikasi sebelumnya sebelum memulai yang berikutnya.
+   Jika ada banyak notifikasi yang perlu dikirim, proses ini bisa menjadi sangat lambat dan menyebabkan keterlambatan dalam respons.
+   Dengan menggunakan multi-threading, notifikasi dapat diproses secara paralel, yang akan mempercepat proses dan meningkatkan responsivitas aplikasi. Ini juga lebih efisien ketika perlu mengirim banyak notifikasi sekaligus.
+
+
