@@ -77,6 +77,23 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+Berikut adalah parafrase dari kalimat yang Anda minta:
+
+**Refleksi Wajib (Penerbit)**
+
+1. Dalam pola Observer yang dijelaskan oleh buku Head First Design Pattern, Subscriber didefinisikan sebagai sebuah antarmuka. Berdasarkan pemahaman Anda tentang pola Observer, apakah kita masih memerlukan antarmuka (atau **trait** dalam Rust) dalam kasus BambangShop ini, atau satu Model **struct** sudah cukup?
+    - Pola Observer memungkinkan objek untuk mendapatkan notifikasi tentang perubahan pada objek lain. Biasanya, ini menggunakan **trait** dalam Rust atau **interface** untuk mendefinisikan metode yang diinginkan.
+    - Penggunaan **interface** atau **trait** dalam BambangShop tidak sepenuhnya diperlukan karena tidak ada variasi dalam perilaku yang diharapkan dari observer.
+    - Sebagai alternatif, penggunaan satu **struct** Model yang mencakup data mengenai observer dan perilaku yang diperlukan untuk memberikan notifikasi sudah cukup. Jadi, penggunaan satu **struct** Model untuk observer sudah memadai.
+
+2. **id** dalam **Program** dan **url** dalam **Subscriber** dimaksudkan untuk unik. Berdasarkan pemahaman Anda, apakah menggunakan **Vec** (daftar) sudah cukup atau menggunakan **DashMap** (peta/kamus) seperti yang saat ini digunakan diperlukan untuk kasus ini?
+    - Jika hanya ingin menyimpan ID atau URL dari pelanggan, penggunaan Vec (daftar) sudah cukup. Namun, DashMap (peta/kamus) lebih disarankan karena memberikan keunggulan dalam kecepatan akses dan manipulasi data.
+    - Dengan menggunakan DashMap, pengecekan terhadap ID atau URL yang sudah ada menjadi lebih sederhana. Selain itu, DashMap juga menyediakan akses dan pembaruan entri yang sudah ada dengan kecepatan yang lebih tinggi, yang dapat meningkatkan efisiensi dan kinerja aplikasi.
+
+3. Saat pemrograman menggunakan Rust, kita dipaksa oleh batasan kompiler yang ketat untuk membuat program yang aman terhadap thread. Dalam kasus daftar Subscriber (**SUBSCRIBERS**) variabel statis, kita menggunakan pustaka eksternal **DashMap** untuk **HashMap yang aman terhadap thread**. Berdasarkan pemahaman Anda tentang pola desain, apakah kita masih memerlukan **DashMap** atau kita dapat mengimplementasikan pola Singleton sebagai gantinya?
+    - Pola Singleton menjamin bahwa sebuah kelas hanya memiliki satu instansi di seluruh aplikasi.
+    - Penggunaan DashMap untuk variabel statis SUBSCRIBERS merupakan pilihan terbaik karena memungkinkan akses ke struktur data yang sama dari mana pun dalam aplikasi serta menjaga keamanan konkurensi. Jadi, DashMap memberikan solusi yang efektif untuk mengelola keamanan konkurensi dalam lingkungan multi-threaded yang penting dalam pengembangan program Rust.
+    - Meskipun pola Singleton dapat diimplementasikan dalam Rust, penggunaannya tidak terlalu diperlukan dalam kasus ini karena DashMap sudah menyediakan fungsionalitas yang diperlukan. Jadi, penggunaan DashMap adalah opsi yang tepat untuk kebutuhan variabel statis SUBSCRIBERS dalam BambangShop.
 
 #### Reflection Publisher-2
 
