@@ -96,5 +96,28 @@ Berikut adalah parafrase dari kalimat yang Anda minta:
     - Meskipun pola Singleton dapat diimplementasikan dalam Rust, penggunaannya tidak terlalu diperlukan dalam kasus ini karena DashMap sudah menyediakan fungsionalitas yang diperlukan. Jadi, penggunaan DashMap adalah opsi yang tepat untuk kebutuhan variabel statis SUBSCRIBERS dalam BambangShop.
 
 #### Reflection Publisher-2
+Berikut adalah parafrase dari kalimat yang Anda berikan:
+
+**Refleksi Penerbit-2**
+
+1. Dalam pola gabungan Model-View-Controller (MVC), tidak ada "Service" dan "Repository". Model dalam MVC mencakup penyimpanan data dan logika bisnis. Berdasarkan pemahaman Anda tentang prinsip desain, mengapa kita perlu memisahkan "Service" dan "Repository" dari Model?
+
+   Prinsip SRP (Single Responsibility Principle) menyarankan bahwa setiap kelas harus hanya memiliki satu alasan untuk berubah, yang berarti fokus pada satu tanggung jawab. Oleh karena itu, pemisahan "Service" dan "Repository" dari Model diperlukan agar Model hanya fokus pada definisi struktur data.
+   Prinsip desain menyarankan pemisahan komponen untuk memastikan bahwa setiap bagian memiliki tanggung jawabnya sendiri. Dengan memindahkan logika bisnis ke "Service" dan operasi penyimpanan data ke "Repository", Model menjadi representasi murni dari struktur data.
+   Pendekatan ini memberikan fleksibilitas pada Model untuk beradaptasi dengan perubahan dalam struktur atau penyimpanan data tanpa terbebani oleh metode yang tidak relevan.
+
+2. Apa yang terjadi jika kita hanya menggunakan Model? Jelaskan imajinasi Anda tentang bagaimana interaksi antara setiap model (Program, Subscriber, Notification) mempengaruhi kompleksitas kode untuk setiap model?
+
+   Jika kita bergantung hanya pada Model tanpa membagi tanggung jawab ke "Service" dan "Repository", maka Model akan terbebani dengan tanggung jawab ganda: representasi data dan logika bisnis. Ini akan menciptakan kelas-kelas yang memiliki terlalu banyak tanggung jawab, bertentangan dengan prinsip SRP.
+   Akibatnya, kompleksitas kode akan meningkat, pemeliharaan dan perluasan kode menjadi lebih sulit, interaksi antar-model menjadi lebih rumit dan saling terikat, serta ketergantungan yang kuat antar-kode.
+   Sebagai contoh, jika suatu Produk perlu memberitahu Subscriber tentang perubahan, interaksi langsung dengan objek Subscriber untuk mengirimkan Notifikasi akan melanggar prinsip enkapsulasi dan membuat kode sulit dipahami.
+   Tanpa pembagian tanggung jawab yang tepat, kompleksitas kode untuk setiap Model akan meningkat, membuat kode menjadi sulit untuk dipahami, diuji, dan dipelihara.
+
+3. Apakah Anda telah menjelajahi lebih lanjut tentang Postman? Ceritakan bagaimana alat ini membantu Anda menguji pekerjaan Anda saat ini. Anda mungkin juga ingin menyebutkan fitur-fitur dalam Postman yang Anda minati atau merasa bermanfaat untuk membantu Proyek Kelompok Anda atau proyek rekayasa perangkat lunak masa depan Anda.
+
+   Postman membantu dalam pengujian program dengan memungkinkan pengiriman respons ke endpoint API, memfasilitasi simulasi tanpa memerlukan HTML.
+   Alat ini memungkinkan pengiriman permintaan HTTP ke endpoint API dengan parameter yang dapat disesuaikan, termasuk header, parameter query, dan isi permintaan.
+   Postman juga dilengkapi dengan fitur pengujian otomatis yang memungkinkan pembuatan dan pelaksanaan serangkaian pengujian otomatis untuk memverifikasi perilaku endpoint API, termasuk status kode respons dan isi body respons.
+   Fitur variabel lingkungan dalam Postman memudahkan pengguna untuk beralih antara lingkungan yang berbeda, seperti pengembangan, staging, dan produksi saat menguji API.
 
 #### Reflection Publisher-3
